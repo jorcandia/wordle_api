@@ -1,0 +1,78 @@
+body {
+    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#adivinar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#adivinar-input {
+    margin-bottom: 10px;
+    height: 40px;
+    width: 300px;
+    font-size: 25px;
+    padding: 10px 10px 10px 20px;
+}
+
+#adivinar-button {
+    font-size: 25px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background-color: #3a6b81;
+    border: none;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 20ms ease-in;
+}
+
+#mensaje {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#intentos-restantes {
+    margin: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+#mensaje-intentos {
+    margin: 10px;
+    font-size: 35px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.mensaje-anterior {
+    display: flex;
+}
+
+.mensaje-anterior span {
+    padding: 5px;
+    margin: 2px;
+    border-radius: 2px;
+    color: black;
+}
+
+.mensaje-verde {
+    background-color: green; /* Verde */
+}
+
+.mensaje-amarillo {
+    background-color: yellow; /* Amarillo */
+}
+
+.mensaje-gris {
+    background-color: gray; /* Gris */
+}
