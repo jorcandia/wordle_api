@@ -1,19 +1,17 @@
-// URL de la API para obtener palabras aleatorias
 const apiUrl = 'https://random-word-api.herokuapp.com/word?length=5';
 
-// Seleccionar una palabra aleatoria de la API
+
 async function obtenerPalabraAleatoria() {
     try {
         const respuesta = await fetch(apiUrl);
         const data = await respuesta.json();
-        return data[0].toUpperCase(); // Convertir la palabra a mayúsculas
+        return data[0].toUpperCase();
     } catch (error) {
         console.error('Error al obtener palabra de la API:', error);
-        // Puedes manejar el error de manera apropiada aquí
     }
 }
 
-let palabra; // Esta variable se actualizará con la palabra obtenida de la API
+let palabra;
 
 let intentos = 6;
 let intentosRestantes = intentos;
@@ -25,7 +23,6 @@ const intentoSobrante = document.getElementById("intentos-restantes");
 const numeroIntento = document.getElementById("mensaje-intentos");
 
 document.addEventListener("DOMContentLoaded", async function () {
-    // Obtener la palabra aleatoria de la API al inicio del juego
     palabra = await obtenerPalabraAleatoria();
     console.log(palabra);
 
@@ -44,6 +41,7 @@ function manejarIntento() {
             intentos--;
 
             if (intentos === 0) {
+                mostrarIntentosRestantes();
                 mostrarResultado("Perdiste. La palabra correcta era: " + palabra, intento);
                 deshabilitarJuego();
             } else {
@@ -62,13 +60,11 @@ function deshabilitarJuego() {
 }
 
 function leerIntento() {
-    // Obtener los primeros 5 caracteres del input y convertir a mayúsculas
     const userInput = input.value.slice(0, 5).toUpperCase();
     return userInput;
 }
 
 function validarIntento(intento) {
-    // Verificar si el intento es una cadena y tiene exactamente 5 caracteres
     return typeof intento === 'string' && intento.length === 5;
 }
 
@@ -79,7 +75,7 @@ function mostrarResultado(mensajeTexto, palabraIngresada, esGanador) {
     const palabraAnteriorElement = document.createElement("div");
     palabraAnteriorElement.classList.add("mensaje-anterior");
 
-    const palabraMostrar = palabraIngresada || ''; // Si palabraIngresada es undefined, usar cadena vacía
+    const palabraMostrar = palabraIngresada || ''; 
 
     for (let i = 0; i < palabraMostrar.length; i++) {
         const letraElement = document.createElement("span");
